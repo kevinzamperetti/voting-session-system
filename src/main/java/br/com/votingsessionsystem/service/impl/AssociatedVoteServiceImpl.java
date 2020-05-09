@@ -10,12 +10,14 @@ import br.com.votingsessionsystem.repository.AssociatedRepository;
 import br.com.votingsessionsystem.repository.AssociatedVoteRepository;
 import br.com.votingsessionsystem.repository.VotingSessionRepository;
 import br.com.votingsessionsystem.service.AssociatedVoteService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static br.com.votingsessionsystem.util.ValidateDocumentNumber.checkDocumentNumberIsValid;
 import static java.util.Objects.isNull;
 import static org.springframework.util.StringUtils.hasText;
 
@@ -35,7 +37,7 @@ public class AssociatedVoteServiceImpl implements AssociatedVoteService {
     }
 
     @Override
-    public AssociatedVote save(AssociatedVoteDto associatedVoteDto) {
+    public AssociatedVote save(AssociatedVoteDto associatedVoteDto) throws JsonProcessingException {
 
         verifyFieldsForSave(associatedVoteDto);
         Associated associated = associatedRepository.findById(associatedVoteDto.getIdAssociated())
@@ -43,6 +45,7 @@ public class AssociatedVoteServiceImpl implements AssociatedVoteService {
         VotingSession votingSession = votingSessionRepository.findById(associatedVoteDto.getIdVotingSession())
                 .orElseThrow(() -> new VotingSubjectIdNotFoundException("Voting Session not found."));
 
+        checkDocumentNumberIsValid(associated.getDocumentNumber());
         checkIfCanVote(votingSession, associated);
 
         return repository.save(AssociatedVote.builder()

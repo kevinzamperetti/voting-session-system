@@ -3,6 +3,7 @@ package br.com.votingsessionsystem.controller;
 import br.com.votingsessionsystem.entity.AssociatedVote;
 import br.com.votingsessionsystem.entity.dto.AssociatedVoteDto;
 import br.com.votingsessionsystem.service.AssociatedVoteService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class AssociatedVoteController {
     }
 
     @PostMapping(path = "/v1/associated_vote")
-    public ResponseEntity<AssociatedVote> save(@RequestBody AssociatedVoteDto associatedVoteDto) {
+    public ResponseEntity<AssociatedVote> save(@RequestBody AssociatedVoteDto associatedVoteDto) throws JsonProcessingException {
         return ResponseEntity.status(CREATED).body(service.save(associatedVoteDto));
     }
 
