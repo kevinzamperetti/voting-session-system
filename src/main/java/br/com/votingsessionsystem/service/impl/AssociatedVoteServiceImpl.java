@@ -43,7 +43,7 @@ public class AssociatedVoteServiceImpl implements AssociatedVoteService {
         Associated associated = associatedRepository.findById(associatedVoteDto.getIdAssociated())
                 .orElseThrow(() -> new AssociatedIdNotFoundException("Associated not found."));
         VotingSession votingSession = votingSessionRepository.findById(associatedVoteDto.getIdVotingSession())
-                .orElseThrow(() -> new VotingSubjectIdNotFoundException("Voting Session not found."));
+                .orElseThrow(() -> new VotingSessionIdNotFoundException("Voting Session not found."));
 
         checkDocumentNumberIsValid(associated.getDocumentNumber());
         checkIfCanVote(votingSession, associated);
