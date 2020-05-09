@@ -1,5 +1,6 @@
 package br.com.votingsessionsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class VotingSession extends BaseEntity {
     @JoinColumn(name = "id_voting_subject", referencedColumnName = "id_voting_subject")
     private VotingSubject votingSubject;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "associated", fetch = LAZY)
     private Set<AssociatedVote> votes;
 
