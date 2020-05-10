@@ -37,6 +37,11 @@ public class AssociatedVoteServiceImpl implements AssociatedVoteService {
     }
 
     @Override
+    public List<AssociatedVote> listVotesInVotingSession(Long idVotingSession) {
+        return repository.findVotesInVotingSession(idVotingSession);
+    }
+
+    @Override
     public AssociatedVote save(AssociatedVoteDto associatedVoteDto) throws JsonProcessingException {
 
         verifyFieldsForSave(associatedVoteDto);
