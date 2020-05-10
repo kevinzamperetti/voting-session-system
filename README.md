@@ -7,7 +7,7 @@ coloca em estado de "sleeping" após 30 minutos de inatividade.
 Para acessar o repositório do projeto <a href="https://github.com/kevinzamperetti/voting-session-system" target="_blank">clique aqui</a>.
 
 
-Para acessar o repositório do projeto [clique aqui](https://github.com/kevinzamperetti/voting-session-system){:target="_blank"}.
+Para acessar o repositório do projeto [clique aqui](https://github.com/kevinzamperetti/voting-session-system){:target="_blank" rel="noopener"}
 
 
 Os endpoints da API foram disponibilizados no site do Postman, 
