@@ -25,6 +25,12 @@ public class AssociatedVoteController {
         return ResponseEntity.ok(service.listAll());
     }
 
+    @GetMapping(path = "/v1/associated_vote/voting_session/{id}")
+    public ResponseEntity<List<AssociatedVote>> listVotesInVotingSession(@PathVariable("id") Long idVotingSession) {
+        return ResponseEntity.ok(service.listVotesInVotingSession(idVotingSession));
+    }
+
+
     @PostMapping(path = "/v1/associated_vote")
     public ResponseEntity<AssociatedVote> save(@RequestBody AssociatedVoteDto associatedVoteDto) throws JsonProcessingException {
         return ResponseEntity.status(CREATED).body(service.save(associatedVoteDto));

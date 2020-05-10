@@ -10,6 +10,8 @@ public interface AssociatedVoteService {
 
     List<AssociatedVote> listAll();
 
+    List<AssociatedVote> listVotesInVotingSession(Long idVotingSession);
+
     AssociatedVote save(AssociatedVoteDto associatedVoteDto) throws JsonProcessingException;
 
 }

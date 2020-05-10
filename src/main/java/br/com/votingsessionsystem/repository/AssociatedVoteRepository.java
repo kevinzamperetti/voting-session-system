@@ -21,6 +21,14 @@ public interface AssociatedVoteRepository extends JpaRepository<AssociatedVote, 
     @Query("SELECT av " +
             " FROM AssociatedVote av " +
             " LEFT JOIN FETCH av.votingSession vsession " +
+            " LEFT JOIN FETCH av.associated associated " +
+            "WHERE vsession.id = :idVotingSession")
+    List<AssociatedVote> findVotesInVotingSession(Long idVotingSession);
+
+
+    @Query("SELECT av " +
+            " FROM AssociatedVote av " +
+            " LEFT JOIN FETCH av.votingSession vsession " +
             " LEFT JOIN FETCH av.associated associated" +
             " WHERE associated.id = :idAssociated" +
             "   AND vsession.id = :idVotingSession ")
