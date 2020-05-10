@@ -4,10 +4,10 @@ A api foi desenvolvida com Spring Boot, Java 8 e banco de dados PostgreSQL e dis
 Por ter sido hospedada na versão free, pode ser que a primeira requisição demore um pouco para ser realizada, uma vez que esta versão
 coloca em estado de "sleeping" após 30 minutos de inatividade.
 
-Para acessar o repositório do projeto <a href="https://github.com/kevinzamperetti/voting-session-system">clique aqui</a>.
+Para acessar o repositório do projeto <a href="https://github.com/kevinzamperetti/voting-session-system" target="_blank">clique aqui</a>.
 
 Os endpoints da API foram disponibilizados no site do Postman, 
-<a href="https://documenter.getpostman.com/view/10875867/SzmfYcuB?version=latest">clique aqui</a> para acessá-los.
+<a href="https://documenter.getpostman.com/view/10875867/SzmfYcuB?version=latest" target="_blank">clique aqui</a> para acessá-los.
 
 A API possui endpoints para consulta dos associados, pautas, sessões de votação, associados que votaram
 em uma sessão específica e contabilização dos votos por pauta.
