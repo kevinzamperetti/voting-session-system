@@ -42,10 +42,10 @@ Para consultá-los, basta chamar o endpoint abaixo que irá retornar a lista dos
 **Body:**
 ```
 {
-	"name": "Seção da Pauta 4",
+	"name": "Seção de Votação da Pauta 1",
 	"closingDate": "2020-05-09T14:00:00",
 	"votingSubject" : {
-		"id": 4
+		"id": 1
 	}
 }
 ```
@@ -68,11 +68,11 @@ Para consultá-los, basta chamar o endpoint abaixo que irá retornar a lista dos
 }
 ```
 
-**Validações:**
+**Validações existentes ao votar:**
 - Este endpoint possui integração com uma API externa que verifica se o CPF do associado está habilitado ou não para votação.
 - Caso não esteja será retornada um erro com a seguinte mensagem **“Document Number of Associated unable to vote.”**
-- Outra validação é que somente pode ser realizada uma votação enquanto a sessão estiver em aberto, se ao tentar votar a sessão já
-estiver fechada, será gerada a seguinte mensagem de erro **“Associated Vote denied Voting Session closed.”**
+- Somente pode ser realizada votações enquanto a sessão estiver em aberto. Se ao tentar votar a sessão já estiver fechada, 
+será gerada a seguinte mensagem de erro **“Associated Vote denied Voting Session closed.”**
 - O associado só poderá realizar uma votação por sessão. Ao tentar votar por mais de uma vez, será gerada a seguinte
 mensagem de erro: **“Associated Vote already taken for this Voting Session”**
 
@@ -90,7 +90,8 @@ mensagem de erro: **“Associated Vote already taken for this Voting Session”*
 
 ### Versionamento da API
 
-Como opção de versionamento da API foi escolhido o modelo de versionamento no path, onde é informada a versão da API logo após a URL base.
+Como opção de versionamento da API foi escolhido o modelo de versionamento no path, onde é informada a versão da API logo após 
+a URL base.
 Neste projeto foi definido o modelo **“/api/{versão}”**.
 Foi configurado no “application.yaml” do projeto a URL base **“/api”** e nos endpoints a versão **“/v1”**,
 pois desta forma se um endpoint necessitar ser liberado em outra versão, sem que cause impacto para os clientes
@@ -99,6 +100,3 @@ que já utilizam, basta criá-lo com esta nova versão .
 **Exemplo:**
 - ../api/v1/voting_subject
 - ../api/v2/voting_subject
-
-
-
